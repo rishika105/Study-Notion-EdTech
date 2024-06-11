@@ -28,6 +28,21 @@ app.use(
 	})
 )
 
+const cors = require('cors');
+const allowedOrigins = ['https://study-notion-ed-tech-frontend-phi.vercel.app'];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+
+app.use(cors(corsOptions));
+
 app.use(
 	fileUpload({
 		useTempFiles:true,
