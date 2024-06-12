@@ -51,6 +51,26 @@ The front end of the platform is built using ReactJS, which allows for the creat
 - **Frameworks/Libraries:** ReactJS, CSS, Tailwind, Redux
 - **Development Environment:** VSCode
 
+### Dependencies
+- `axios`: For making HTTP requests.
+- `chart.js` and `react-chartjs-2`: For data visualization.
+- `concurrently`: To run multiple commands concurrently during development.
+- `copy-to-clipboard`: For copying text to the clipboard.
+- `react` and `react-dom`: For building and rendering the user interface.
+- `react-dropzone`: For handling file uploads.
+- `react-hook-form`: For managing form state.
+- `react-hot-toast`: For displaying toast notifications.
+- `react-icons`: For including icons in the project.
+- `react-otp-input`: For handling OTP inputs.
+- `react-rating-stars-component`: For displaying rating stars.
+- `react-redux` and `redux-toolkit`: For state management.
+- `react-router-dom`: For routing within the application.
+- `react-scripts`: For running React scripts.
+- `react-super-responsive-table`: For making tables responsive.
+- `react-type-animation`: For adding type animation effects.
+- `swiper`: For implementing sliders.
+- `video-react`: For embedding video players.
+
 ## Back-end
 
 The back end is built using NodeJS and ExpressJS, with MongoDB as the primary database. The platform uses a monolithic architecture.
