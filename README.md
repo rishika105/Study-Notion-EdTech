@@ -91,7 +91,7 @@ The back end is built using NodeJS and ExpressJS, with MongoDB as the primary da
 - **Course Schema:** Fields include course name, description, instructor details, and media content.
 
 ### Dependencies
-- `bcrypt` and `bcryptjs`: For hashing passwords.
+- `bcryptjs`: For hashing passwords.
 - `cloudinary`: For handling image and video uploads.
 - `cookie-parser`: For parsing cookies.
 - `cors`: For enabling Cross-Origin Resource Sharing.
