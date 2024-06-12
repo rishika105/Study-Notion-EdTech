@@ -53,10 +53,10 @@ The front end of the platform is built using ReactJS, which allows for the creat
 
 ### Dependencies
 - `axios`: For making HTTP requests.
-- `chart.js` and `react-chartjs-2`: For data visualization.
+- `chart.js`: For data visualization.
 - `concurrently`: To run multiple commands concurrently during development.
 - `copy-to-clipboard`: For copying text to the clipboard.
-- `react` and `react-dom`: For building and rendering the user interface.
+- `react-dom`: For building and rendering the user interface.
 - `react-dropzone`: For handling file uploads.
 - `react-hook-form`: For managing form state.
 - `react-hot-toast`: For displaying toast notifications.
@@ -89,6 +89,23 @@ The back end is built using NodeJS and ExpressJS, with MongoDB as the primary da
 - **Student Schema:** Fields include name, email, password, and course details.
 - **Instructor Schema:** Fields include name, email, password, and course details.
 - **Course Schema:** Fields include course name, description, instructor details, and media content.
+
+### Dependencies
+- `bcrypt` and `bcryptjs`: For hashing passwords.
+- `cloudinary`: For handling image and video uploads.
+- `cookie-parser`: For parsing cookies.
+- `cors`: For enabling Cross-Origin Resource Sharing.
+- `crypto-random-string`: For generating random strings.
+- `dotenv`: For loading environment variables.
+- `express`: For creating the server and handling routes.
+- `express-fileupload`: For handling file uploads.
+- `jsonwebtoken`: For generating and verifying JSON Web Tokens.
+- `mongoose`: For interacting with MongoDB.
+- `node-schedule`: For scheduling tasks.
+- `nodemailer`: For sending emails.
+- `nodemon`: For automatically restarting the server during development.
+- `otp-generator`: For generating OTP codes.
+- `razorpay`: For integrating payment processing with Razorpay.
 
 ## API Design
 
