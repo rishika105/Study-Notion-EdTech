@@ -12,17 +12,17 @@ StudyNotion aims to provide:
 1. [System Architecture](#system-architecture)
 2. [Front-end](#front-end)
 3. [Back-end](#back-end)
-4. [Screenshots](#screenshots)
 5. [API Design](#api-design)
 6. [Deployment](#deployment)
-7. [Future Enhancements](#future-enhancements)
+7. [Screenshots](#screenshots)
+8. [Future Enhancements](#future-enhancements)
 
 ## System Architecture
 
 The StudyNotion ed-tech platform consists of three main components: the front end, the back end, and the database. The platform follows a client-server architecture, with the front end serving as the client and the back end and database serving as the server.
 
 ### Architecture Diagram
-*Insert Architecture Diagram here*
+![studynotion archii](https://github.com/rishika105/Study-Notion-EdTech/assets/165581871/0fffcb2f-f7b1-4a2a-bcc5-e536d1e62cd4)
 
 ## Front-end
 
@@ -66,10 +66,6 @@ The back end is built using NodeJS and ExpressJS, with MongoDB as the primary da
 - **Student Schema:** Fields include name, email, password, and course details.
 - **Instructor Schema:** Fields include name, email, password, and course details.
 - **Course Schema:** Fields include course name, description, instructor details, and media content.
-
-## Screenshots
-
-*Insert relevant screenshots here*
 
 ## API Design
 
@@ -150,6 +146,10 @@ To install the StudyNotion platform, follow these steps:
     npm run dev
     ```
 3. **Access the application** in your browser at `http://localhost:3000`
+
+## Screenshots
+
+*Insert relevant screenshots here*
 
 ## Future Enhancements
 
