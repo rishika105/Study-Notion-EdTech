@@ -14,8 +14,11 @@ StudyNotion aims to provide:
 3. [Back-end](#back-end)
 5. [API Design](#api-design)
 6. [Deployment](#deployment)
-7. [Screenshots](#screenshots)
-8. [Future Enhancements](#future-enhancements)
+7. [Installation](#installation)
+8. [Configuration](#configuration)
+9. [Usage](#usage)
+10. [Screenshots](#screenshots)
+11. [Future Enhancements](#future-enhancements)
 
 ## System Architecture
 
