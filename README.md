@@ -1,4 +1,3 @@
-
 # StudyNotion
 
 **AN ED-TECH PLATFORM**
@@ -13,11 +12,10 @@ StudyNotion aims to provide:
 1. [System Architecture](#system-architecture)
 2. [Front-end](#front-end)
 3. [Back-end](#back-end)
-4. [API Design](#api-design)
-5. [Deployment](#deployment)
-6. [Testing](#testing)
+4. [Screenshots](#screenshots)
+5. [API Design](#api-design)
+6. [Deployment](#deployment)
 7. [Future Enhancements](#future-enhancements)
-8. [Screenshots](#screenshots)
 
 ## System Architecture
 
@@ -69,6 +67,10 @@ The back end is built using NodeJS and ExpressJS, with MongoDB as the primary da
 - **Instructor Schema:** Fields include name, email, password, and course details.
 - **Course Schema:** Fields include course name, description, instructor details, and media content.
 
+## Screenshots
+
+*Insert relevant screenshots here*
+
 ## API Design
 
 The platform's API follows the REST architectural style and is implemented using NodeJS and ExpressJS. It uses JSON for data exchange.
@@ -82,8 +84,6 @@ The platform's API follows the REST architectural style and is implemented using
 6. **GET /api/courses/:id:** Get details of a specific course by ID.
 7. **POST /api/courses:** Create a new course.
 8. **PUT /api/courses/:id:** Update an existing course by ID.
-9. **DELETE /api/courses/:id:** Delete a course by ID.
-10. **POST /api/courses/:id/rate:** Add a rating to a course.
 
 ## Deployment
 
@@ -95,6 +95,62 @@ The deployment process involves hosting the application on various cloud-based s
 - **Media Files:** Hosted on Cloudinary.
 - **Database:** Hosted on MongoDB Atlas.
 
+## Installation
+To install the StudyNotion platform, follow these steps:
+
+1. **Clone the repository:**
+    ```sh
+    git clone https://github.com/rishika105/StudyNotion
+    ```
+2. **Navigate to the project directory:**
+    ```sh
+    cd Study-Notion-EdTech-main
+    ```
+3. **Install backend dependencies:**
+    ```sh
+    cd server && npm install
+    ```
+4. **Install frontend dependencies:**
+    ```sh
+    cd .. && npm install
+    ```
+
+## Configuration
+1. **Set up a MongoDB database** and obtain the connection URL.
+2. **Set up Mail pass and Mail Port from Gmail.**
+3. **Set up a Razorpay account** and obtain the key, secret.
+4. **Get jwt secret.**
+5. **Set up a Cloudinary account** and obtain cloud name, API key, and API secret.
+
+6. **Create a `.env` file** in the Server directory with the following environment variables:
+    ```sh
+    MONGODB_URL=<your-mongodb-connection-url>
+    JWT_SECRET=<your-jwt-secret-key>
+    MAIL_HOST=smtp.gmail.com
+    MAIL_PORT=<your-mail-port>
+    MAIL_USER=<your-mail-id>
+    JWT-SECRET=<your-jwt-secret>
+    RAZORPAY_KEY=<your-razorpay-key>
+    RAZORPAY_SECRET=<your-razorpay-secret>
+    CLOUD_NAME=<your-cloud-name-on-cloudinary>
+    API_KEY=<your-cloudinary-api-key>
+    API_SECRET=<your-cloudinary-api-secret>
+    ```
+
+7. **Create a `.env` file** in the root folder and add:
+    ```sh
+    REACT_APP_BASE_URL=<your-backend-url-or-your-localhost>
+    ```
+8. **Change the CORS allow origin** in `index.js` inside the Server directory to the localhost or backend URL you are using.
+
+## Usage
+1. **Open a new terminal**
+2. **Run the dev script:**
+    ```sh
+    npm run dev
+    ```
+3. **Access the application** in your browser at `http://localhost:3000`
+
 ## Future Enhancements
 
 1. **Gamification Features:** Increase user engagement with badges, points, and leaderboards.
@@ -103,7 +159,3 @@ The deployment process involves hosting the application on various cloud-based s
 4. **Mobile App:** Improve accessibility and reach with a mobile app.
 5. **Machine Learning-powered Recommendations:** Provide personalized course recommendations.
 6. **Virtual Reality/Augmented Reality Integration:** Enhance learning experience with immersive technology.
-
-## Screenshots
-
-*Insert relevant screenshots here*
