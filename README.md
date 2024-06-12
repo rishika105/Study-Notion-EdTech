@@ -189,7 +189,8 @@ To install the StudyNotion platform, follow these steps:
 
 ## Screenshots
 
-Preview in Vercel:https://study-notion-ed-tech-frontend-phi.vercel.app/
+Preview:https://study-notion-ed-tech-frontend-phi.vercel.app/
+
 ![studynotion homeeeeeee](https://github.com/rishika105/Study-Notion-EdTech/assets/165581871/15f42c04-3b75-450c-a567-23cca5378cb0)
 
 
