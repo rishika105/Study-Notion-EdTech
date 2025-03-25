@@ -15,11 +15,11 @@ const CodeBlocks = ({
           {subHeading}
         </div>
 
-        <div className='flex flex-row gap-7 mt-7'>
+        <div className='flex flex-col md:flex-row gap-7 mt-7'>
           <CTAButton active={ctabtn1.active} linkto={ctabtn1.linkto}>
-            <div className='flex gap-2 items-center'>
+            <div className='flex flex-row gap-2 items-center  ml-[70px] md:ml-0'>
               {ctabtn1.btnText}
-              <FaArrowRight />
+              <FaArrowRight/>
             </div>
           </CTAButton>
 

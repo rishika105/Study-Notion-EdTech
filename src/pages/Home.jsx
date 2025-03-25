@@ -16,7 +16,6 @@ import ReviewSlider from '../components/common/ReviewSlider'
 const Home = () => {
   return (
     <div>
-
       {/* Section 1 */}
       <div className='relative mx-auto flex flex-col w-11/12 items-center
        text-white justify-between max-w-maxContent'>
@@ -32,7 +31,7 @@ const Home = () => {
           </div>
         </Link>
 
-        <div className='lg:text-center text-4xl font-semibold mt-7 w-[90%]'>
+        <div className='lg:text-center text-3xl lg:text-4xl font-semibold mt-7 w-[90%]'>
           Empower Your Future with
           <HighlightText text={"Coding Skills"} />
         </div>
@@ -43,7 +42,7 @@ const Home = () => {
           personalized feedback from instructors.
         </div>
 
-        <div className='flex flex-row gap-7 mt-8'>
+        <div className='flex flex-row gap-7 mt-8 ml-0 md:-ml-[43%] lg:ml-0'>
           <CTAButton active={true} linkto={"/signup"}>
             Learn More
           </CTAButton>
@@ -70,13 +69,13 @@ const Home = () => {
           <CodeBlocks
             position={"flex-col lg:flex-row"}
             heading={
-              <div className='text-4xl font-semibold'>
+              <div className='text-3xl lg:text-4xl font-semibold'>
                 Unlock Your
                 <HighlightText text={"coding potential"} />
                 with our online courses
               </div>
             }
-            subHeading={"Our courses are designed aand taught by industry experts who have years of experience in coding and are passoniate about sharing their knowledge with you"}
+            subHeading={"Our courses are designed and taught by industry experts who have years of experience in coding and are passoniate about sharing their knowledge with you"}
 
             ctabtn1={{
               btnText: "Try it Yourself",
@@ -103,14 +102,13 @@ const Home = () => {
           <CodeBlocks
             position={"flex-col lg:flex-row-reverse"}
             heading={
-              <div className='text-4xl font-semibold'>
+              <div className='text-3xl lg:text-4xl font-semibold'>
                 Start
                 <HighlightText text={"coding"} />
                 in seconds
               </div>
             }
             subHeading={"Go ahead, give it a try. Our hands-on learning environment means you'll be writing real code from your very first lesson."}
-
             ctabtn1={{
               btnText: "Continue Lesson",
               linkto: "/signup",
@@ -138,9 +136,8 @@ const Home = () => {
 
           <div className='w-11/12 max-w-maxContent flex items-center gap-5 mx-auto flex-col justify-between'>
             <div className='h-[150px]'></div>
-            <div className='flex flex-row gap-7 text-white mt-[60px]'>
+            <div className='flex flex-col md:flex-row gap-7 text-white mt-[60px]'>
               <CTAButton active={true} linkto={"/signup"}>
-
                 <div className='flex items-center gap-3'>
                   Explore Full Catalog
                   <FaArrowRight />
@@ -158,7 +155,7 @@ const Home = () => {
 
         <div className='mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-between gap-7'>
           <div className='w-full flex flex-col lg:flex-row gap-5 lg:gap-[100px] mt-[95px] mb-10 justify-center items-center'>
-            <div className='text-4xl font-semibold w-[90%]'>
+            <div className='text-3xl lg:text-4xl font-semibold w-[90%]'>
               Get the skills you need for a
               <HighlightText text={"Job that is in demand"} />
             </div>
@@ -194,7 +191,7 @@ const Home = () => {
 
         <div className="relative mx-auto my-20 flex w-11/12 max-w-maxContent flex-col items-center justify-between gap-8 bg-richblack-900 text-white">
           {/* Reviews from Other Learner */}
-          <h1 className="lg:text-center text-4xl font-semibold mt-8">
+          <h1 className="lg:text-center text-3xl lg:text-4xl font-semibold mt-8">
             Reviews from other learners
           </h1>
           {/* <ReviewSlider /> */}

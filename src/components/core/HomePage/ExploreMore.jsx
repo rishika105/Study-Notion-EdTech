@@ -31,7 +31,7 @@ const ExploreMore = () => {
     <div className=" max-w-maxContent mx-auto relative">
       {/* Explore more section */}
       <div className="mb-[50px] w-[90%] mx-auto">
-        <div className="text-4xl font-semibold lg:text-center">
+        <div className="text-3xl lg:text-4xl font-semibold lg:text-center">
           Unlock the
           <HighlightText text={"Power of Code"} />
           <p className="lg:text-center text-richblack-300 text-lg font-semibold mt-1">
