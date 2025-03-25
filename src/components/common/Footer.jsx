@@ -23,11 +23,11 @@ const Footer = () => {
       <div className="w-11/12 max-w-maxContent mx-auto py-14">
         {/* Main Footer Content */}
         <div className="flex flex-col lg:flex-row gap-8 pb-5 border-b border-richblack-700">
-          {/* Section 1 - Left Side */}
-          <div className="lg:w-[50%] flex flex-col sm:flex-row flex-wrap justify-between text-richblack-200 font-thin text-opacity-70 lg:border-r lg:border-richblack-700 lg:pr-5 gap-y-7">
+          {/* Section 1 - Left Side - Now 2 columns on mobile */}
+          <div className="lg:w-[50%] flex flex-row flex-wrap justify-between text-richblack-200 font-thin text-opacity-70 lg:border-r lg:border-richblack-700 lg:pr-5 gap-y-7">
             {/* Company Column */}
-            <div className="w-full sm:w-[48%] lg:w-[30%]">
-              <img src={Logo} alt="" className="object-contain w-[160px] mb-3" />
+            <div className="w-[48%] lg:w-[30%] mt-6 lg:mt-0">
+              <img src={Logo} alt="" className="object-contain w-[160px] mb-6" />
               <h1 className="text-richblack-50 font-semibold text-[16px] mb-2">
                 Company
               </h1>
@@ -51,7 +51,7 @@ const Footer = () => {
             </div>
 
             {/* Resources & Support Column */}
-            <div className="w-full sm:w-[48%] lg:w-[30%]">
+            <div className="w-[48%] lg:w-[30%] mt-20 lg:mt-0">
               <h1 className="text-richblack-50 font-semibold text-[16px] mb-2">
                 Resources
               </h1>
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
 
             {/* Plans & Community Column */}
-            <div className="w-full sm:w-[48%] lg:w-[30%]">
+            <div className="w-[48%] lg:w-[30%] -mt-36 lg:mt-0">
               <h1 className="text-richblack-50 font-semibold text-[16px] mb-2">
                 Plans
               </h1>

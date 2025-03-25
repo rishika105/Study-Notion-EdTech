@@ -6,15 +6,15 @@ import CTAButton from "./Button"
 
 const InstructerSection = () => {
   return (
-    <div className='mt-16'>
-      <div className='flex flex-col lg:flex-row gap-20 items-center justify-center mx-auto'>
+    
+      <div className='mt-24 flex flex-col lg:flex-row gap-20 lg:ml-24 items-center justify-evenly mx-auto'>
 
-        <div className='flex mx-auto ml-[80px]'>
+        <div className='mx-auto w-[85%] lg:w-[50%]'>
           <img src={Instructor} alt='instructor'
             className='shadow-white shadow-[-20px_-20px_0_0]' />
         </div>
 
-        <div className=' flex flex-col gap-10 mx-auto'>
+        <div className=' flex flex-col gap-10 w-[90%]'>
           <div className='text-4xl font-semibold'>
             Become an
             <HighlightText text={"Instructor"} />
@@ -25,7 +25,6 @@ const InstructerSection = () => {
           </p>
 
           <div className='w-fit'>
-
             <CTAButton active={true} linkto={"/signup"}>
               <div className='flex flex-row gap-2 items-center'>
                 Start Teaching Today
@@ -36,7 +35,7 @@ const InstructerSection = () => {
 
         </div>
       </div>
-    </div>
+
   )
 }
 
