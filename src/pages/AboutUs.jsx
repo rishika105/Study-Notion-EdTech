@@ -18,7 +18,7 @@ const AboutUs = () => {
         {/* first-section */}
         <div className='bg-richblack-700 h-[300px] md:h-[400px] lg:h-[500px] w-screen'>
           {/* heading */}
-          <div className='flex flex-col items-center justify-center mt-12 md:mt-16 lg:mt-[90px] gap-3 w-[90%] mx-auto lg:text-center'>
+          <div className='flex flex-col items-center justify-center mt-12 md:mt-16 lg:mt-[90px] gap-3 w-[85%] mx-auto lg:text-center'>
             <div className='font-semibold text-3xl lg:text-4xl text-white'>
               Driving Innovation in Online Education for a
               <HighlightText text="Brighter Future"/>
@@ -42,8 +42,7 @@ const AboutUs = () => {
         <div className='mt-[10px] bg-richblack-400 h-[1px] w-screen opacity-30'></div>
 
         {/* our founding section */}
-        <div className='relative w-full'>
-          <div className='relative w-11/12 max-w-maxContent flex flex-col lg:flex-row mx-auto gap-8 lg:gap-15 justify-between items-center mt-16 md:mt-20 lg:mt-[90px] px-4'>
+          <div className='relative flex flex-col lg:flex-row mx-auto gap-8 lg:gap-15 justify-between items-center mt-16 md:mt-20 lg:mt-[90px] px-4'>
             <div className='w-full lg:w-[50%] gap-6 md:gap-10 flex flex-col'>
               <div className='bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-3xl lg:text-4xl font-semibold text-transparent'>
                 Our Founding Story
@@ -64,11 +63,11 @@ const AboutUs = () => {
               alt="Founding Story"
             />
           </div>
-        </div>
+   
 
-        <section className="w-full">
-          <div className='flex flex-col lg:flex-row gap-10 mt-16 md:mt-24 lg:mt-[200px] w-11/12 justify-between max-w-maxContent mx-auto px-4'>
-            <div className='flex flex-col gap-6 md:gap-8 lg:gap-10 w-[90%] lg:w-[40%]'>
+   
+          <div className='flex flex-col lg:flex-row gap-10 mt-16 md:mt-24 lg:mt-[200px] justify-between mx-auto px-4'>
+            <div className='flex flex-col gap-6 md:gap-8 lg:gap-10 w-full lg:w-[40%]'>
               <span className="bg-gradient-to-b from-[#FF512F] to-[#F09819] text-transparent bg-clip-text font-bold text-3xl lg:text-4xl">
                 Our Vision
               </span>
@@ -77,14 +76,14 @@ const AboutUs = () => {
               </p>
             </div>
 
-            <div className='flex flex-col gap-6 md:gap-8 lg:gap-10 w-[90%] lg:w-[40%]'>
+            <div className='flex flex-col gap-6 md:gap-8 lg:gap-10 w-full lg:w-[40%]'>
               <HighlightText text={"Our Mission"}/>
               <p className='text-richblack-200 opacity-90 text-sm md:text-base'>
                 Our mission goes beyond just delivering courses online. We wanted to create a vibrant community of learners, where individuals can connect, collaborate, and learn from one another. We believe that knowledge thrives in an environment of sharing and dialogue, and we foster this spirit of collaboration through forums, live sessions, and networking opportunities.
               </p>
             </div>
           </div>
-        </section>
+
 
         <Stats/>
 
