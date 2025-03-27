@@ -31,7 +31,7 @@ const CourseDetailsCard = ({
       text1: "You are not Logged in",
       text2: "Please login to add to cart",
       btn1Text: "Login",
-      btn1Text: "Cancel",
+      btn2Text: "Cancel",
       btn1Handler: () => navigate("/login"),
       btn2Handler: () => setConfirmationModal(null),
     });
@@ -44,7 +44,7 @@ const CourseDetailsCard = ({
 
   return (
     <div className="space-y-3">
-      <img src={course?.thumbnail} alt="Thumbnail Image" className="w-full" />
+      <img src={course?.thumbnail} alt="thumbnail" className="w-full" />
       <div className="space-x-3 pb-4 text-3xl font-semibold text-white">
         Rs. {course?.price}
       </div>

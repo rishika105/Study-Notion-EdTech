@@ -25,10 +25,9 @@ const CourseDetails = () => {
 
   const [courses, setCourses] = useState(null);
   const [avgReviewCount, setAvgReviewCount] = useState(0);
-  const [totalNoOfLectures, setTotalNoOfLectures] = useState("");
+  const [totalNoOfLectures, setTotalNoOfLectures] = useState(0);
   const [loading, setLoading] = useState(true);
   const [confirmationModal, setConfirmationModal] = useState(null);
-
   const [isActive, setIsActive] = useState([]);
 
   const handleActive = (id) => {
@@ -41,7 +40,6 @@ const CourseDetails = () => {
     const getCourseDetails = async () => {
       try {
         const result = await fetchCourseDetails(courseId);
-        console.log("Printing course Details: ", result);
         if (result) {
           setCourses(result);
         }
@@ -90,7 +88,11 @@ const CourseDetails = () => {
   };
 
   if (loading) {
-    return <div className="spinner"></div>;
+    return (
+      <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
+        <div className="spinner"></div>
+      </div>
+    );
   }
 
   if (!courses?.success) {
@@ -101,109 +103,138 @@ const CourseDetails = () => {
   const instructor = courseDetails.instructor || {};
 
   return (
-    <div className="relative">
-      <div className="w-full h-[430px] bg-richblack-800 relative flex justify-start">
-        <div className="text-white ml-[80px] pt-[90px]">
-          <div className="space-y-3">
-            <p className="font-bold text-[2.75rem]">
-              {courseDetails.courseName}
-            </p>
-            <p className="text-richblack-200 text-[1.25rem]">
-              {courseDetails.courseDescription}
-            </p>
-
-            <div className="flex flex-row gap-2 text-[1.15rem]">
-              <span className="text-yellow-50">{avgReviewCount || 0}</span>
-              <span>
-                <RatingStars Review_Count={avgReviewCount} Star_Size={25} />
-              </span>
-              <p>
-                ({courseDetails.ratingAndReviews.length} reviews)
-              </p>
-              <p>
-                {courseDetails.studentsEnrolled.length} students enrolled
-              </p>
+    <div className="relative w-full bg-richblack-900">
+      {/* Hero Section */}
+      <div className="relative w-full bg-richblack-800">
+        <div className="mx-auto box-content px-4 2xl:relative w-11/12">
+          <div className="mx-auto grid min-h-[450px] max-w-maxContentTab justify-items-center py-8 lg:mx-0 lg:justify-items-start lg:py-0 xl:max-w-[810px]">
+            <div className="relative block max-h-[30rem] lg:hidden">
+              <div className="absolute bottom-0 left-0 h-full w-full shadow-[#00000012_0px_-64px_36px_-28px_inset]"></div>
             </div>
-
-            <p className="text-[1.15rem]">
-              Created By {instructor.firstName} {instructor.lastName}
-            </p>
-            <div className="flex space-x-6 text-[1.15rem]">
-              <p className="flex gap-1">
-                <AiTwotoneClockCircle className="text-[1.25rem] mt-1" />
-                Created at {formatDate(courseDetails.createdAt)}
+            
+            <div className="z-30 my-5 flex flex-col justify-center gap-4 py-5 text-white lg:my-0 lg:py-24">
+              <h1 className="text-3xl font-bold sm:text-4xl lg:text-[2.75rem]">
+                {courseDetails.courseName}
+              </h1>
+              
+              <p className="text-richblack-200 text-sm sm:text-base lg:text-lg">
+                {courseDetails.courseDescription}
               </p>
-              <p className="flex gap-1">
-                <MdLanguage className="text-[1.25rem] mt-1" />
-                English
+              
+              <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
+                <span className="text-yellow-50">{avgReviewCount || 0}</span>
+                <RatingStars Review_Count={avgReviewCount} Star_Size={20} />
+                <span>({courseDetails.ratingAndReviews.length} reviews)</span>
+                <span>{courseDetails.studentsEnrolled.length} students enrolled</span>
+              </div>
+              
+              <p className="text-sm sm:text-base">
+                Created By {instructor.firstName} {instructor.lastName}
               </p>
+              
+              <div className="flex flex-wrap gap-4 text-sm sm:text-base">
+                <p className="flex items-center gap-1">
+                  <AiTwotoneClockCircle className="text-lg" />
+                  Created at {formatDate(courseDetails.createdAt)}
+                </p>
+                <p className="flex items-center gap-1">
+                  <MdLanguage className="text-lg" />
+                  English
+                </p>
+              </div>
+            </div>
+            
+            {/* Course Details Card - Desktop */}
+            <div className="hidden lg:block">
+              <div className="absolute right-16 top-[-50px] z-50 mx-auto w-[400px] translate-y-24 rounded-md bg-richblack-700 p-6 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
+                <CourseDetailsCard
+                  course={courseDetails}
+                  setConfirmationModal={setConfirmationModal}
+                  handleBuyCourse={handleBuyCourse}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className="bg-richblack-700 min-h-[600px] rounded-md px-8 py-4 w-[430px]
-        -mt-[380px] right-[1rem] mx-auto absolute mr-[40px]"
-      >
-        <CourseDetailsCard
-          setConfirmationModal={setConfirmationModal}
-          course={courseDetails}
-          handleBuyCourse={handleBuyCourse}
-        />
+      {/* Course Details Card - Mobile */}
+      <div className="mx-auto block px-4 lg:hidden lg:px-0">
+        <div className="mx-auto mt-10 mb-6 z-50 w-full max-w-maxContentTab rounded-lg bg-richblack-700 p-6 lg:hidden">
+          <CourseDetailsCard
+            course={courseDetails}
+            setConfirmationModal={setConfirmationModal}
+            handleBuyCourse={handleBuyCourse}
+          />
+        </div>
       </div>
 
-      <div className="text-white ml-[70px] mt-[30px] px-5 py-5 w-[56%] border-[1px] border-richblack-500 space-y-3">
-        <h1 className="font-bold text-[1.8rem]">What You'll Learn</h1>
-        <p className="text-[1.15rem]">
-          {courseDetails.whatYouWillLearn}
-        </p>
+      {/* What You'll Learn Section */}
+      <div className="mx-auto box-content px-4 lg:w-[1260px] mt-10">
+        <div className="mx-auto max-w-maxContentTab rounded-lg border border-richblack-500 p-6 text-white lg:mx-0 lg:max-w-[810px]">
+          <h2 className="text-2xl font-bold sm:text-3xl">What You'll Learn</h2>
+          <p className="mt-3 text-richblack-50 sm:text-lg">
+            {courseDetails.whatYouWillLearn}
+          </p>
+        </div>
       </div>
 
-      <div className="text-white ml-[50px] mt-[20px] px-5 py-5 w-[56%] space-y-3">
-        <h1 className="font-bold text-[1.8rem]">Course Content</h1>
-
-        <div>
-          <div className="text-[1rem] flex flex-row justify-between">
-            <div className="flex space-x-2">
-              <p>{courseDetails.courseContent.length} Sections(s)</p>
-              <p>{totalNoOfLectures} Lecture(s)</p>
-              <p>{courses.data.totalDuration} total length</p>
+      {/* Course Content Section */}
+      <div className="mx-auto box-content px-4 pb-12 lg:w-[1260px]">
+        <div className="mx-auto max-w-maxContentTab py-8 text-white lg:mx-0 lg:max-w-[810px]">
+          <div className="flex flex-col gap-4">
+            <h2 className="text-2xl font-bold sm:text-3xl">Course Content</h2>
+            
+            <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
+              <div className="flex flex-wrap gap-2 text-sm sm:text-base">
+                <span>{courseDetails.courseContent.length} Section(s)</span>
+                <span>{totalNoOfLectures} Lecture(s)</span>
+                <span>{courses.data.totalDuration} total length</span>
+              </div>
+              
+              <button
+                onClick={() => setIsActive([])}
+                className="text-sm font-medium text-yellow-50 hover:text-yellow-25 sm:text-base"
+              >
+                Collapse all Sections
+              </button>
             </div>
-
-            <button onClick={() => setIsActive([])} className="text-yellow-25">
-              Collapse all Sections
-            </button>
+            
+            <div className="mt-4">
+              {courseDetails.courseContent.map((section, index) => (
+                <CourseAccordionBar
+                  course={section}
+                  key={index}
+                  isActive={isActive}
+                  handleActive={handleActive}
+                />
+              ))}
+            </div>
           </div>
+        </div>
+      </div>
 
-          <div className="py-4">
-            {courseDetails.courseContent.map((section, index) => (
-              <CourseAccordionBar
-                course={section}
-                key={index}
-                isActive={isActive}
-                handleActive={handleActive}
-              />
-            ))}
-          </div>
-
-          <div className="space-y-3 mb-12 mt-5">
-            <h1 className="font-bold text-[2rem]">Author</h1>
-            <div className="flex">
-              <img
-                src={
-                  instructor.image
-                    ? instructor.image
-                    : `https://api.dicebear.com/5.x/initials/svg?seed=${instructor.firstName} ${instructor.lastName}`
-                }
-                alt={`profile-${instructor.firstName}`}
-                className="aspect-square w-14 h-14 rounded-full object-cover"
-              />
-
-              <p className="text-[1.15rem] py-4 ml-3">
+      {/* Author Section */}
+      <div className="mx-auto box-content px-4 lg:w-[1260px] -mt-10 mb-10">
+        <div className="mx-auto max-w-maxContentTab py-8 text-white lg:mx-0 lg:max-w-[810px]">
+          <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Author</h2>
+          
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+            <img
+              src={
+                instructor.image
+                  ? instructor.image
+                  : `https://api.dicebear.com/5.x/initials/svg?seed=${instructor.firstName} ${instructor.lastName}`
+              }
+              alt={`profile-${instructor.firstName}`}
+              className="h-14 w-14 rounded-full object-cover"
+            />
+            
+            <div>
+              <p className="text-lg font-medium">
                 {instructor.firstName} {instructor.lastName}
               </p>
-              <p>
+              <p className="text-richblack-50">
                 {instructor.additionalDetails?.about}
               </p>
             </div>
