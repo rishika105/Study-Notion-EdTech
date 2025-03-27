@@ -57,7 +57,7 @@ const Home = () => {
             muted
             loop
             autoPlay
-            className='w-[900px] h-[400px] shadow-[20px_20px_rgba(255,255,255)]'
+            className='w-[1000px] h-[400px] shadow-[20px_20px_rgba(255,255,255)]'
           >
             <source src={Banner} type="video/mp4" />
 

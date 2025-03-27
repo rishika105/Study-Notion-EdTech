@@ -77,7 +77,7 @@ export const fetchCourseCategories = async () => {
     result = response?.data?.data
   } catch (error) {
     console.log("COURSE_CATEGORY_API API ERROR............", error)
-    toast.error(error.message)
+    // toast.error(error.message)
   }
   return result
 }
@@ -279,7 +279,7 @@ export const fetchInstructorCourses = async (token) => {
     result = response?.data?.data
   } catch (error) {
     console.log("INSTRUCTOR COURSES API ERROR............", error)
-    toast.error(error.message)
+    // toast.error(error.message)
   }
   toast.dismiss(toastId)
   return result
