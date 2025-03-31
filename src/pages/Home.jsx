@@ -13,11 +13,13 @@ import Footer from "../components/common/Footer"
 import ExploreMore from "../components/core/HomePage/ExploreMore"
 import ReviewSlider from '../components/common/ReviewSlider'
 import NavBar from '../components/common/NavBar'
+import Chatbot from '../components/common/Chatbot'
 
 const Home = () => {
   return (
     <div>
       <NavBar />
+      <Chatbot/>
       {/* Section 1 */}
       <div className='relative mx-auto flex flex-col w-11/12 items-center
        text-white justify-between max-w-maxContent'>
