@@ -26,7 +26,7 @@ function LoginForm() {
   const { email, password } = formData
 
   const handleOnSubmit = (e) => {
-    
+
     e.preventDefault()
     dispatch(login(email, password, navigate))
     console.log(email, password)
@@ -96,7 +96,7 @@ function LoginForm() {
   )
 }
 
-export default LoginForm 
+export default LoginForm
 
 /* import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";

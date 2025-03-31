@@ -20,7 +20,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
   } = useSelector((state) => state.viewCourse)
 
   useEffect(() => {
-    ;(() => {
+    ; (() => {
       if (!courseSectionData.length) return
       const currentSectionIndx = courseSectionData.findIndex(
         (data) => data._id === sectionId
@@ -83,11 +83,10 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                     Lesson {course?.subSection.length}
                   </span> */}
                   <span
-                    className={`${
-                      activeStatus === section?.sectionName
-                        ? "rotate-0"
-                        : "rotate-180"
-                    } transition-all duration-500`}
+                    className={`${activeStatus === section?.sectionName
+                      ? "rotate-0"
+                      : "rotate-180"
+                      } transition-all duration-500`}
                   >
                     <BsChevronDown />
                   </span>
@@ -99,12 +98,11 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                 <div className="transition-[height] duration-500 ease-in-out">
                   {section.subSection.map((topic, i) => (
                     <div
-                      className={`flex gap-3  px-5 py-2 ${
-                        videoBarActive === topic._id
-                          ? "bg-yellow-200 font-semibold text-richblack-800"
-                          : "hover:bg-richblack-900"
-                      } `}
-                      key={i}  
+                      className={`flex gap-3  px-5 py-2 ${videoBarActive === topic._id
+                        ? "bg-yellow-200 font-semibold text-richblack-800"
+                        : "hover:bg-richblack-900"
+                        } `}
+                      key={i}
                       onClick={() => {
                         navigate(
                           `/view-course/${courseEntireData?._id}/section/${section?._id}/sub-section/${topic?._id}`
@@ -115,7 +113,7 @@ export default function VideoDetailsSidebar({ setReviewModal }) {
                       <input
                         type="checkbox"
                         checked={completedLectures.includes(topic?._id)}
-                        onChange={() => {}}
+                        onChange={() => { }}
                       />
                       {topic.title}
                     </div>

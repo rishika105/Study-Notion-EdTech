@@ -50,11 +50,10 @@ export default function MyProfile() {
           </IconBtn>
         </div>
         <p
-          className={`${
-            user?.additionalDetails?.about
+          className={`${user?.additionalDetails?.about
               ? "text-richblack-5"
               : "text-richblack-400"
-          } text-sm font-medium`}
+            } text-sm font-medium`}
         >
           {user?.additionalDetails?.about ?? "Write Something About Yourself"}
         </p>
@@ -108,14 +107,14 @@ export default function MyProfile() {
               </p>
             </div>
             <div>
-  <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
-  <p className="text-sm font-medium text-richblack-5">
-    {user?.additionalDetails?.dateOfBirth ? 
-      formattedDate(user.additionalDetails.dateOfBirth) : 
-      "Add Date Of Birth"
-    }
-  </p>
-</div>
+              <p className="mb-2 text-sm text-richblack-600">Date Of Birth</p>
+              <p className="text-sm font-medium text-richblack-5">
+                {user?.additionalDetails?.dateOfBirth ?
+                  formattedDate(user.additionalDetails.dateOfBirth) :
+                  "Add Date Of Birth"
+                }
+              </p>
+            </div>
 
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -15,6 +15,7 @@ const CourseDetailsCard = ({
 }) => {
   const { user } = useSelector((state) => state.profile);
   const { token } = useSelector((state) => state.auth);
+  const [goToCart, setGoToCart] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -25,16 +26,22 @@ const CourseDetailsCard = ({
     }
     if (token) {
       dispatch(addToCart(course));
+      setGoToCart(true);
+      // navigate("/dashboard/cart");
+    }
+    if (goToCart) {
       navigate("/dashboard/cart");
     }
-    setConfirmationModal({
-      text1: "You are not Logged in",
-      text2: "Please login to add to cart",
-      btn1Text: "Login",
-      btn2Text: "Cancel",
-      btn1Handler: () => navigate("/login"),
-      btn2Handler: () => setConfirmationModal(null),
-    });
+    else {
+      setConfirmationModal({
+        text1: "You are not Logged in",
+        text2: "Please login to add to cart",
+        btn1Text: "Login",
+        btn2Text: "Cancel",
+        btn1Handler: () => navigate("/login"),
+        btn2Handler: () => setConfirmationModal(null),
+      });
+    }
   };
 
   const handleShare = () => {
@@ -53,8 +60,8 @@ const CourseDetailsCard = ({
         <button
           onClick={
             user &&
-            !(user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) &&
-            course?.studentsEnrolled.includes(user?._id)
+              !(user?.accountType === ACCOUNT_TYPE.INSTRUCTOR) &&
+              course?.studentsEnrolled.includes(user?._id)
               ? () => navigate("/dashboard/enrolled-courses")
               : handleBuyCourse
           }
@@ -72,7 +79,11 @@ const CourseDetailsCard = ({
             className="flex bg-richblack-800 h-[40px] rounded-md items-center 
             justify-center font-semibold text-white mb-2"
           >
-            Add to Cart
+            {
+              goToCart ? (<div>Go to Cart</div>) : (
+                <div>Add to Cart</div>
+              )
+            }
           </button>
         )}
 

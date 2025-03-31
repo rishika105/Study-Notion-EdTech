@@ -174,9 +174,9 @@ export default function NestedView({ handleChangeEditSectionName }) {
       )}
       {/* Confirmation Modal */}
       {
-      confirmationModal  &&
+        confirmationModal &&
         <ConfirmationModal modalData={confirmationModal} />
-      
+
       }
     </>
   )

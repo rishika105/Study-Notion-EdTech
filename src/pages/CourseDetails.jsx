@@ -13,6 +13,7 @@ import Error from "../pages/Error";
 import ConfirmationModal from "../components/common/ConfirmationModal";
 import CourseDetailsCard from "../components/core/Course/CourseDetailsCard";
 import CourseAccordionBar from "../components/core/Course/CourseAccordionBar";
+import NavBar from "../components/common/NavBar";
 
 const CourseDetails = () => {
   const { course } = useSelector((state) => state.course);
@@ -104,6 +105,7 @@ const CourseDetails = () => {
 
   return (
     <div className="relative w-full bg-richblack-900">
+      <NavBar />
       {/* Hero Section */}
       <div className="relative w-full bg-richblack-800">
         <div className="mx-auto box-content px-4 2xl:relative w-11/12">
@@ -111,27 +113,27 @@ const CourseDetails = () => {
             <div className="relative block max-h-[30rem] lg:hidden">
               <div className="absolute bottom-0 left-0 h-full w-full shadow-[#00000012_0px_-64px_36px_-28px_inset]"></div>
             </div>
-            
+
             <div className="z-30 my-5 flex flex-col justify-center gap-4 py-5 text-white lg:my-0 lg:py-24">
               <h1 className="text-3xl font-bold sm:text-4xl lg:text-[2.75rem]">
                 {courseDetails.courseName}
               </h1>
-              
+
               <p className="text-richblack-200 text-sm sm:text-base lg:text-lg">
                 {courseDetails.courseDescription}
               </p>
-              
+
               <div className="flex flex-wrap items-center gap-2 text-sm sm:text-base">
                 <span className="text-yellow-50">{avgReviewCount || 0}</span>
                 <RatingStars Review_Count={avgReviewCount} Star_Size={20} />
                 <span>({courseDetails.ratingAndReviews.length} reviews)</span>
                 <span>{courseDetails.studentsEnrolled.length} students enrolled</span>
               </div>
-              
+
               <p className="text-sm sm:text-base">
                 Created By {instructor.firstName} {instructor.lastName}
               </p>
-              
+
               <div className="flex flex-wrap gap-4 text-sm sm:text-base">
                 <p className="flex items-center gap-1">
                   <AiTwotoneClockCircle className="text-lg" />
@@ -143,7 +145,7 @@ const CourseDetails = () => {
                 </p>
               </div>
             </div>
-            
+
             {/* Course Details Card - Desktop */}
             <div className="hidden lg:block">
               <div className="absolute right-16 top-[-50px] z-50 mx-auto w-[400px] translate-y-24 rounded-md bg-richblack-700 p-6 shadow-[0_3px_10px_rgb(0,0,0,0.2)]">
@@ -184,14 +186,14 @@ const CourseDetails = () => {
         <div className="mx-auto max-w-maxContentTab py-8 text-white lg:mx-0 lg:max-w-[810px]">
           <div className="flex flex-col gap-4">
             <h2 className="text-2xl font-bold sm:text-3xl">Course Content</h2>
-            
+
             <div className="flex flex-col justify-between gap-2 sm:flex-row sm:items-center">
               <div className="flex flex-wrap gap-2 text-sm sm:text-base">
                 <span>{courseDetails.courseContent.length} Section(s)</span>
                 <span>{totalNoOfLectures} Lecture(s)</span>
                 <span>{courses.data.totalDuration} total length</span>
               </div>
-              
+
               <button
                 onClick={() => setIsActive([])}
                 className="text-sm font-medium text-yellow-50 hover:text-yellow-25 sm:text-base"
@@ -199,7 +201,7 @@ const CourseDetails = () => {
                 Collapse all Sections
               </button>
             </div>
-            
+
             <div className="mt-4">
               {courseDetails.courseContent.map((section, index) => (
                 <CourseAccordionBar
@@ -218,7 +220,7 @@ const CourseDetails = () => {
       <div className="mx-auto box-content px-4 lg:w-[1260px] -mt-10 mb-10">
         <div className="mx-auto max-w-maxContentTab py-8 text-white lg:mx-0 lg:max-w-[810px]">
           <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Author</h2>
-          
+
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
             <img
               src={
@@ -229,7 +231,7 @@ const CourseDetails = () => {
               alt={`profile-${instructor.firstName}`}
               className="h-14 w-14 rounded-full object-cover"
             />
-            
+
             <div>
               <p className="text-lg font-medium">
                 {instructor.firstName} {instructor.lastName}

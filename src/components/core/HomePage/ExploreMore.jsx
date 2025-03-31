@@ -47,11 +47,10 @@ const ExploreMore = () => {
           {tabsName.map((ele, index) => {
             return (
               <div
-                className={`text-[16px] flex flex-row items-center gap-2 ${
-                  currentTab === ele
+                className={`text-[16px] flex flex-row items-center gap-2 ${currentTab === ele
                     ? "bg-richblack-900 text-richblack-5 font-medium"
                     : "text-richblack-200"
-                } px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
+                  } px-7 py-[7px] rounded-full transition-all duration-200 cursor-pointer hover:bg-richblack-900 hover:text-richblack-5`}
                 key={index}
                 onClick={() => setMyCards(ele)}
               >
@@ -70,9 +69,8 @@ const ExploreMore = () => {
           >
             <span>{currentTab}</span>
             <svg
-              className={`w-5 h-5 ml-2 transition-transform duration-200 ${
-                showMobileTabs ? "rotate-180" : ""
-              }`}
+              className={`w-5 h-5 ml-2 transition-transform duration-200 ${showMobileTabs ? "rotate-180" : ""
+                }`}
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -94,15 +92,12 @@ const ExploreMore = () => {
                 {tabsName.map((ele, index) => (
                   <div
                     key={index}
-                    className={`px-4 py-3 cursor-pointer ${
-                      currentTab === ele
+                    className={`px-4 py-3 cursor-pointer ${currentTab === ele
                         ? "bg-richblack-700 text-yellow-50"
                         : "text-richblack-200 hover:bg-richblack-700"
-                    } ${
-                      index === 0 ? "rounded-t-lg" : ""
-                    } ${
-                      index === tabsName.length - 1 ? "rounded-b-lg" : ""
-                    } transition-colors duration-200`}
+                      } ${index === 0 ? "rounded-t-lg" : ""
+                      } ${index === tabsName.length - 1 ? "rounded-b-lg" : ""
+                      } transition-colors duration-200`}
                     onClick={() => setMyCards(ele)}
                   >
                     {ele}

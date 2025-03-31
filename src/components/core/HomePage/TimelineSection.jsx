@@ -70,7 +70,6 @@ const TimelineSection = () => {
 
             <div className="absolute bg-caribbeangreen-700 flex flex-row text-white uppercase py-7
              left-[50%] translate-x-[-50%] translate-y-[-50%]">
-
               <div className="flex flex-row gap-5 items-center  px-7">
                 <p className="text-3xl font-bold">10</p>
                 <p className="text-caribbeangreen-300 text-sm">Years of Experience</p>

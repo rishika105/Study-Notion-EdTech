@@ -139,11 +139,10 @@ const Footer = () => {
             {BottomFooter.map((ele, i) => (
               <div
                 key={i}
-                className={`px-3 ${
-                  BottomFooter.length - 1 === i
+                className={`px-3 ${BottomFooter.length - 1 === i
                     ? ""
                     : "border-r border-richblack-700"
-                }`}
+                  }`}
               >
                 <Link
                   to={ele.split(" ").join("-").toLowerCase()}

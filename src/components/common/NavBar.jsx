@@ -21,7 +21,7 @@ function NavBar() {
   const [catalogDropdownOpen, setCatalogDropdownOpen] = useState(false)
 
   useEffect(() => {
-    ;(async () => {
+    ; (async () => {
       setLoading(true)
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
@@ -47,16 +47,15 @@ function NavBar() {
 
   return (
     <div
-      className={`flex h-16 items-center justify-evenly border-b-[1px] border-b-richblack-700 ${
-        location.pathname !== "/" ? "bg-richblack-800" : ""
-      } transition-all duration-200`}
+      className={`flex h-16 items-center justify-evenly border-b-[1px] border-b-richblack-700 ${location.pathname !== "/" ? "bg-richblack-800" : ""
+        } transition-all duration-200`}
     >
       <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
           <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
         </Link>
-        
+
         {/* Desktop Navigation links */}
         <nav className="hidden md:block mx-auto">
           <ul className="flex gap-x-6 text-richblack-25">
@@ -64,12 +63,11 @@ function NavBar() {
               <li key={index}>
                 {link.title === "Catalog" ? (
                   <div
-                    className={`group relative flex cursor-pointer items-center gap-1 ${
-                      matchRoute("/catalog/:catalogName")
+                    className={`group relative flex cursor-pointer items-center gap-1 ${matchRoute("/catalog/:catalogName")
                         ? "text-yellow-25"
                         : "text-richblack-25"
-                    }`}
-                  > 
+                      }`}
+                  >
                     <p>{link.title}</p>
                     <BsChevronDown />
                     <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
@@ -103,11 +101,10 @@ function NavBar() {
                 ) : (
                   <Link to={link?.path}>
                     <p
-                      className={`${
-                        matchRoute(link?.path)
+                      className={`${matchRoute(link?.path)
                           ? "text-yellow-25"
                           : "text-richblack-25"
-                      }`}
+                        }`}
                     >
                       {link.title}
                     </p>
@@ -117,7 +114,7 @@ function NavBar() {
             ))}
           </ul>
         </nav>
-        
+
         {/* Desktop Login / Signup / Dashboard */}
         <div className="hidden items-center gap-x-4 md:flex">
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
@@ -151,7 +148,7 @@ function NavBar() {
         </div>
 
         {/* Mobile menu button */}
-        <button 
+        <button
           className="md:hidden text-richblack-100 focus:outline-none"
           onClick={toggleMobileMenu}
         >
@@ -171,13 +168,12 @@ function NavBar() {
               <div key={index}>
                 {link.title === "Catalog" ? (
                   <div className="flex flex-col">
-                    <button 
+                    <button
                       onClick={toggleCatalogDropdown}
-                      className={`flex items-center justify-between py-2 ${
-                        matchRoute("/catalog/:catalogName")
+                      className={`flex items-center justify-between py-2 ${matchRoute("/catalog/:catalogName")
                           ? "text-yellow-25"
                           : "text-richblack-25"
-                      }`}
+                        }`}
                     >
                       <span>{link.title}</span>
                       <BsChevronDown className={`transition-transform ${catalogDropdownOpen ? 'rotate-180' : ''}`} />
@@ -209,13 +205,12 @@ function NavBar() {
                     )}
                   </div>
                 ) : (
-                  <Link 
-                    to={link?.path} 
-                    className={`block py-2 ${
-                      matchRoute(link?.path)
+                  <Link
+                    to={link?.path}
+                    className={`block py-2 ${matchRoute(link?.path)
                         ? "text-yellow-25"
                         : "text-richblack-25"
-                    }`}
+                      }`}
                     onClick={toggleMobileMenu}
                   >
                     {link.title}
@@ -227,8 +222,8 @@ function NavBar() {
             {/* Mobile Auth/Cart buttons */}
             <div className="flex flex-col space-y-3 pt-4 border-t border-richblack-700">
               {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
-                <Link 
-                  to="/dashboard/cart" 
+                <Link
+                  to="/dashboard/cart"
                   className="flex items-center gap-2 text-richblack-25"
                   onClick={toggleMobileMenu}
                 >

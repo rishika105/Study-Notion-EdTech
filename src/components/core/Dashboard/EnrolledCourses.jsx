@@ -12,7 +12,7 @@ export default function EnrolledCourses() {
 
   const [enrolledCourses, setEnrolledCourses] = useState(null)
   const getEnrolledCourses = async () => {
-    try {  
+    try {
       const res = await getUserEnrolledCourses(token);
 
       setEnrolledCourses(res);
@@ -47,9 +47,8 @@ export default function EnrolledCourses() {
           {/* Course Names */}
           {enrolledCourses.map((course, i, arr) => (
             <div
-              className={`flex items-center border border-richblack-700 ${
-                i === arr.length - 1 ? "rounded-b-lg" : "rounded-none"
-              }`}
+              className={`flex items-center border border-richblack-700 ${i === arr.length - 1 ? "rounded-b-lg" : "rounded-none"
+                }`}
               key={i}
             >
               <div

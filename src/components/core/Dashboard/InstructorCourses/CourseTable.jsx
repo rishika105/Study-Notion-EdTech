@@ -19,7 +19,7 @@ import {
 import { COURSE_STATUS } from "../../../../utils/constants"
 import ConfirmationModal from "../../../common/ConfirmationModal"
 
-export default function CoursesTable({ courses, setCourses}) {
+export default function CoursesTable({ courses, setCourses }) {
   const dispatch = useDispatch()
   const navigate = useNavigate()
   const { token } = useSelector((state) => state.auth)
@@ -41,17 +41,17 @@ export default function CoursesTable({ courses, setCourses}) {
 
   // console.log("All Course ", courses)
 
-/*   
-  const getTimeDuration = async() => {
-    const timeDuration = await createSubSection();
-    setTimeDuration(timeDuration)
-
-  }
-
-  useEffect(() =>{
-      getTimeDuration();
-  }, [])
- */
+  /*   
+    const getTimeDuration = async() => {
+      const timeDuration = await createSubSection();
+      setTimeDuration(timeDuration)
+  
+    }
+  
+    useEffect(() =>{
+        getTimeDuration();
+    }, [])
+   */
 
   return (
     <>
@@ -98,11 +98,11 @@ export default function CoursesTable({ courses, setCourses}) {
                     </p>
                     <p className="text-xs text-richblack-300">
                       {course.courseDescription.split(" ").length >
-                      TRUNCATE_LENGTH
+                        TRUNCATE_LENGTH
                         ? course.courseDescription
-                            .split(" ")
-                            .slice(0, TRUNCATE_LENGTH)
-                            .join(" ") + "..."
+                          .split(" ")
+                          .slice(0, TRUNCATE_LENGTH)
+                          .join(" ") + "..."
                         : course.courseDescription}
                     </p>
                     <p className="text-[12px] text-white">
@@ -124,8 +124,8 @@ export default function CoursesTable({ courses, setCourses}) {
                   </div>
                 </Td>
                 <Td className="text-sm font-medium text-richblack-100">
-                    2hr 30min
-         {/*       {
+                  2hr 30min
+                  {/*       {
                 course1.map((allCourse, index)=> {
                     <div key= {index}>
                         {allCourse.totalDuration}
@@ -158,10 +158,10 @@ export default function CoursesTable({ courses, setCourses}) {
                         btn2Text: "Cancel",
                         btn1Handler: !loading
                           ? () => handleCourseDelete(course._id)
-                          : () => {},
+                          : () => { },
                         btn2Handler: !loading
                           ? () => setConfirmationModal(null)
-                          : () => {},
+                          : () => { },
                       })
                     }}
                     title="Delete"

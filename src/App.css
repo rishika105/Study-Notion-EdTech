@@ -99,7 +99,7 @@ details > summary::-webkit-details-marker {
   /* backdrop-filter: blur(26px); */
 }
 .homepage_bg {
- background: url("../src/assets/Images/bghome.svg");
+  background: url("../src/assets/Images/bghome.svg");
   /* background-size: contain; */
 }
 
@@ -245,14 +245,26 @@ details > summary::-webkit-details-marker {
   @apply text-3xl font-bold text-richblack-5 lg:text-4xl;
 }
 
-.icon-btn{
+.icon-btn {
   background-color: #ffd60a;
   padding: 0px 20px 0px 10px;
   height: 30px;
   width: 80px;
   border-radius: 5%;
   color: black;
-  font-size:  0.95rem;
+  font-size: 0.95rem;
   font-weight: bold;
   align-items: left;
+}
+
+/* Add this to your global CSS file */
+@media (max-width: 767px) {
+  .dashboard-content {
+    margin-left: 0;
+  }
+}
+
+/* Transition for sidebar */
+.sidebar-transition {
+  transition: transform 0.3s ease-in-out;
 }
