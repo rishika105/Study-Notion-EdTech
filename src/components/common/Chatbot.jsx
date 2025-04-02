@@ -35,52 +35,32 @@ const Chatbot = () => {
         const userMessage = { text: input, sender: 'user' };
         setMessages(prev => [...prev, userMessage]);
         setInput('');
-        setIsLoading(true);
-        setIsError(false);
-        setErrorMessage(null);
+        
+        // Create a callback to handle AI response
+        const handleAIResponse = (response) => {
+            setMessages(prev => [...prev, { text: response, sender: 'bot' }]);
+        };
 
         try {
-            // Create a simplified history format for the API
+            // Create a simplified history format for the API if needed for future implementation
             const apiHistory = messages.map(msg => ({
                 parts: [{ text: msg.text }],
                 role: msg.sender === 'user' ? 'user' : 'model'
             }));
 
-            // Call the AI API with the current message and chat history
-            const response = await getAIResponseWithHistory(input, apiHistory);
-            
-            // Add the AI response to the chat
-            setMessages(prev => [...prev, { text: response, sender: 'bot' }]);
+            // Use the getAIResponse function from your services
+            await getAIResponse(
+                input, 
+                setIsLoading,
+                handleAIResponse,
+                setErrorMessage,
+                setIsError
+            );
         } catch (error) {
             console.error("Error getting AI response:", error);
             setIsError(true);
             setErrorMessage(error.message || "Failed to get AI response");
             toast.error("Could not get AI response");
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    const getAIResponseWithHistory = async (prompt, history) => {
-        try {
-            const response = await fetch('/api/v1/ai/chat', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ prompt, history }),
-            });
-
-            const data = await response.json();
-            
-            if (!data.success) {
-                throw new Error(data.message || "Failed to get AI response");
-            }
-            
-            return data.data.answer;
-        } catch (error) {
-            console.error("AI API error:", error);
-            throw error;
         }
     };
 

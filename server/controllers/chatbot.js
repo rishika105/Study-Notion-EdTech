@@ -1,4 +1,3 @@
-// controllers/aiController.js
 const axios = require("axios");
 
 exports.chatbotPrompt = async (req, res) => {
@@ -9,9 +8,9 @@ exports.chatbotPrompt = async (req, res) => {
     const { prompt, history } = req.body;
     
     if (!prompt) {
-      return res.status(400).json({ 
-        success: false, 
-        message: "Prompt is required" 
+      return res.status(400).json({
+        success: false,
+        message: "Prompt is required"
       });
     }
 
@@ -27,18 +26,34 @@ exports.chatbotPrompt = async (req, res) => {
     // Use the correct API version and model name
     const API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent";
     
-    // Build the request data
-    const requestData = {
-      contents: [{
-        parts: [{
-          text: prompt
-        }]
-      }]
+    // Build the request data with proper formatting
+    let requestData = {
+      contents: [
+        {
+          role: "user",
+          parts: [{ text: prompt }]
+        }
+      ]
     };
 
-    // Include chat history if provided
+    // Include chat history if provided - with proper role formatting
     if (history && history.length > 0) {
-      requestData.contents = [...history, requestData.contents[0]];
+      // Reset the contents array and build it properly with history
+      requestData.contents = history.map(msg => {
+        // Make sure each message has a role
+        if (!msg.role) {
+          // Assume alternating roles if not specified
+          const isEven = history.indexOf(msg) % 2 === 0;
+          msg.role = isEven ? "user" : "model";
+        }
+        return msg;
+      });
+      
+      // Add the current prompt as the final user message
+      requestData.contents.push({
+        role: "user",
+        parts: [{ text: prompt }]
+      });
     }
 
     console.log("Sending request to Gemini API:", {

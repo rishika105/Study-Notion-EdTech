@@ -1,4 +1,3 @@
-// services/operations/aiAPI.js
 import toast from "react-hot-toast";
 import { endpoints } from "../api";
 import { apiConnector } from "../apiconnector";
@@ -10,7 +9,8 @@ export async function getAIResponse(
     setLoading,
     setAIResponse,
     setErrorMessage,
-    setIsError
+    setIsError,
+    history = []
 ) {
     const toastId = toast.loading("Loading...");
     setLoading(true);
@@ -18,9 +18,9 @@ export async function getAIResponse(
         // Log the request for debugging
         console.log("Sending request to AI API with question:", question);
         
-        const response = await apiConnector("POST", AI_CHAT_API, { 
+        const response = await apiConnector("POST", AI_CHAT_API, {
             prompt: question,
-            history: [] // Optional: you can implement chat history if needed
+            history: history // Pass along the chat history if provided
         });
 
         console.log("AI API RESPONSE.....", response);
@@ -39,5 +39,24 @@ export async function getAIResponse(
     } finally {
         setLoading(false);
         toast.dismiss(toastId);
+    }
+}
+
+// Additional function with chat history support
+export async function getAIResponseWithHistory(prompt, history = []) {
+    try {
+        const response = await apiConnector("POST", AI_CHAT_API, {
+            prompt,
+            history
+        });
+        
+        if (!response.data.success) {
+            throw new Error(response.data.message || "Failed to get AI response");
+        }
+        
+        return response.data.data.answer;
+    } catch (error) {
+        console.error("AI API error:", error);
+        throw error;
     }
 }
