@@ -3,7 +3,7 @@ const axios = require("axios");
 exports.chatbotPrompt = async (req, res) => {
   try {
     // Log the incoming request for debugging
-    console.log("Received chatbot request:", req.body);
+    // console.log("Received chatbot request:", req.body);
 
     const { prompt, history } = req.body;
 
@@ -16,7 +16,7 @@ exports.chatbotPrompt = async (req, res) => {
 
     const API_KEY = process.env.GEMINI_API_KEY;
     if (!API_KEY) {
-      console.error("GEMINI_API_KEY environment variable is not set!");
+      // console.error("GEMINI_API_KEY environment variable is not set!");
       return res.status(500).json({
         success: false,
         message: "API key configuration error",
@@ -49,12 +49,12 @@ exports.chatbotPrompt = async (req, res) => {
     // Add the current prompt as the final user message
     requestData.contents.push({
       role: "user",
-      parts: [{ text: prompt }],
+      parts: [{ text: `${prompt} + Please provide helpful but concise responses, limited to around 40-50 words when possible. Focus on being direct and informative.` }],
     });
 
     // Add request parameters for concise responses
     const generationConfig = {
-      maxOutputTokens: 50, // Limit output length
+      maxOutputTokens: 100, // Limit output length
       temperature: 0.7, // Slightly reduced creativity for more direct responses
     };
 
