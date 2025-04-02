@@ -28,9 +28,10 @@ const CourseDetailsCard = ({
       dispatch(addToCart(course));
       setGoToCart(true);
       // navigate("/dashboard/cart");
-    }
-    if (goToCart) {
-      navigate("/dashboard/cart");
+
+      if (goToCart) {
+        navigate("/dashboard/cart");
+      }
     }
     else {
       setConfirmationModal({
@@ -42,7 +43,7 @@ const CourseDetailsCard = ({
         btn2Handler: () => setConfirmationModal(null),
       });
     }
-  };
+  }
 
   const handleShare = () => {
     copy(window.location.href);
