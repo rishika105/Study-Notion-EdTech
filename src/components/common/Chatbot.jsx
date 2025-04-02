@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FiSend, FiX, FiMessageSquare, FiTrash2 } from 'react-icons/fi';
-import { getAIResponse } from "../../services/operations/aiAPI";
+import { getAIResponseWithHistory } from "../../services/operations/aiAPI";
 import toast from 'react-hot-toast';
 
 const Chatbot = () => {
@@ -11,6 +11,7 @@ const Chatbot = () => {
     const [errorMessage, setErrorMessage] = useState(null);
     const [isError, setIsError] = useState(false);
     const messagesEndRef = useRef(null);
+    const MAX_CONTEXT_MESSAGES = 6; // Limit context to last 6 messages
 
     useEffect(() => {
         // Load chat history from localStorage on component mount
@@ -35,32 +36,36 @@ const Chatbot = () => {
         const userMessage = { text: input, sender: 'user' };
         setMessages(prev => [...prev, userMessage]);
         setInput('');
-        
-        // Create a callback to handle AI response
-        const handleAIResponse = (response) => {
-            setMessages(prev => [...prev, { text: response, sender: 'bot' }]);
-        };
+        setIsLoading(true);
+        setIsError(false);
+        setErrorMessage(null);
 
         try {
-            // Create a simplified history format for the API if needed for future implementation
-            const apiHistory = messages.map(msg => ({
+            // Get recent chat history
+            const recentMessages = messages.slice(-MAX_CONTEXT_MESSAGES);
+            
+            // Format history for API
+            const apiHistory = recentMessages.map(msg => ({
                 parts: [{ text: msg.text }],
                 role: msg.sender === 'user' ? 'user' : 'model'
             }));
 
-            // Use the getAIResponse function from your services
-            await getAIResponse(
-                input, 
-                setIsLoading,
-                handleAIResponse,
-                setErrorMessage,
-                setIsError
-            );
+            // Call the service function
+            const aiResponse = await getAIResponseWithHistory(input, apiHistory);
+            
+            // Add the AI response to the chat
+            setMessages(prev => [...prev, { 
+                text: aiResponse, 
+                sender: 'bot' 
+            }]);
+            
         } catch (error) {
             console.error("Error getting AI response:", error);
             setIsError(true);
             setErrorMessage(error.message || "Failed to get AI response");
             toast.error("Could not get AI response");
+        } finally {
+            setIsLoading(false);
         }
     };
 
