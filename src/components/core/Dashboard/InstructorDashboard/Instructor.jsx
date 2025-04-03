@@ -49,13 +49,13 @@ export default function Instructor() {
         {loading ? (
           <div className="spinner"></div>
         ) : courses.length > 0 ? (
-          <div>
-            <div className="my-4 flex h-[450px] space-x-4">
+          <div className='space-y-4 mt-4'>
+            <div className="flex flex-col lg:flex-row h-[450px] lg:space-x-4">
               {/* Render chart / graph */}
               {totalAmount > 0 || totalStudents > 0 ? (
                 <InstructorChart courses={instructorData} />
               ) : (
-                <div className="flex-1 rounded-md bg-richblack-800 p-6">
+                <div className="flex-1 rounded-md bg-richblack-800 p-6 space-y-4">
                   <p className="text-lg font-bold text-richblack-5">Visualize</p>
                   <p className="mt-4 text-xl font-medium text-richblack-50">
                     Not Enough Data To Visualize
@@ -63,7 +63,7 @@ export default function Instructor() {
                 </div>
               )}
               {/* Total Statistics */}
-              <div className="flex min-w-[250px] flex-col rounded-md bg-richblack-800 p-6">
+              <div className="flex flex-col w-full lg:w-[250px] rounded-md bg-richblack-800 p-6 mt-4 lg:mt-0">
                 <p className="text-lg font-bold text-richblack-5">Statistics</p>
                 <div className="mt-4 space-y-4">
                   <div>
