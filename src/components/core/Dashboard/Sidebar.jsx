@@ -8,6 +8,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom'
 import ConfirmationModal from '../../common/ConfirmationModal'
 import { useState } from 'react'
 import logo from "../../../assets/Logo/Logo-Full-Light.png"
+import {TbCategoryFilled} from 'react-icons'
+
 
 const Sidebar = ({ isOpen, onClose, isMobile }) => {
   const { user, loading: profileLoading } = useSelector((state) => state.profile);

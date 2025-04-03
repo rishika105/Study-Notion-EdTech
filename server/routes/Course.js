@@ -21,7 +21,11 @@ const {
   showAllCategories,
   createCategory,
   categoryPageDetails,
+  updateCategory,
+  deleteCategory
 } = require("../controllers/Category")
+
+
 
 // Sections Controllers Import
 const {
@@ -92,6 +96,8 @@ router.post("/updateCourseProgress", auth, isStudent, updateCourseProgress);
 router.post("/createCategory", auth, isAdmin, createCategory)
 router.get("/showAllCategories", showAllCategories)
 router.post("/getCategoryPageDetails", categoryPageDetails)
+router.put("/updateCategory", auth, isAdmin, updateCategory);
+router.delete("/deleteCategory", auth, isAdmin, deleteCategory);
 
 // ********************************************************************************************************
 //                                      Rating and Review

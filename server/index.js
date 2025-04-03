@@ -3,6 +3,7 @@ const app = express();
 
 const userRoutes = require("./routes/User");
 const aiRoutes = require("./routes/ai");
+const categoryRoutes = require("./routes/Course")
 const profileRoutes = require("./routes/Profile");
 const paymentRoutes = require("./routes/Payments");
 const courseRoutes = require("./routes/Course");
@@ -40,6 +41,7 @@ app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
 app.use("/api/v1/reach", contactUsRoute);
 app.use("/api/v1/chatbot", aiRoutes);
+app.use("/api/v1", categoryRoutes);
 
 //def route
 

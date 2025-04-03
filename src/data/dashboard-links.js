@@ -44,53 +44,16 @@ export const sidebarLinks = [
   {
     id: 4,
     name: "Add Category",
-    path: "/dashboard/add-course",
+    path: "/dashboard/add-category",
     type: ACCOUNT_TYPE.ADMIN,
     icon: "VscAdd",
   },
   {
     id: 5,
     name: "Manage Categories",
-    path: "/dashboard/enrolled-courses",
+    path: "/dashboard/manage-categories",
     type: ACCOUNT_TYPE.ADMIN,
-    icon: "VscMortarBoard",
-  },
-  {
-    id: 6,
-    name: "Manage Courses",
-    path: "/dashboard/cart",
-    type: ACCOUNT_TYPE.ADMIN,
-    icon: "VscHistory",
-  },
-  {
-    id: 6,
-    name: "Manage Students",
-    path: "/dashboard/cart",
-    type: ACCOUNT_TYPE.ADMIN,
-    icon: "VscHistory",
+    icon: "VscBrowser",
   },
 
-  {
-    id: 6,
-    name: "Manage Instructors",
-    path: "/dashboard/cart",
-    type: ACCOUNT_TYPE.ADMIN,
-    icon: "VscHistory",
-  },
-
-  {
-    id: 6,
-    name: "Enrollments & Sales",
-    path: "/dashboard/cart",
-    type: ACCOUNT_TYPE.ADMIN,
-    icon: "VscHistory",
-  },
-
-  {
-    id: 6,
-    name: "Enquiries",
-    path: "/dashboard/cart",
-    type: ACCOUNT_TYPE.ADMIN,
-    icon: "VscHistory",
-  },
 ];

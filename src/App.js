@@ -27,6 +27,7 @@ import CourseDetails from "./pages/CourseDetails";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import ViewCourse from "./pages/ViewCourse";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import CategoryModal from "./components/core/AdminPanel/Category";
 
 function App() {
   const { user } = useSelector((state) => state.profile);
@@ -152,6 +153,15 @@ function App() {
               <Route
                 path="dashboard/edit-course/:courseId"
                 element={<EditCourse />}
+              />
+            </>
+          )}
+
+          {user?.accountType === ACCOUNT_TYPE.ADMIN && (
+            <>
+              <Route
+                path="dashboard/manage-categories"
+                element={<CategoryModal />}
               />
             </>
           )}
