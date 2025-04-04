@@ -11,8 +11,8 @@ import Footer from "../components/common/Footer";
 import { buyCourse } from "../services/operations/StudentFeaturesAPI";
 import Error from "../pages/Error";
 import ConfirmationModal from "../components/common/ConfirmationModal";
-import CourseDetailsCard from "../components/core/Course/CourseDetailsCard";
-import CourseAccordionBar from "../components/core/Course/CourseAccordionBar";
+import CourseDetailsCard from "../components/core/CourseDetailsPage/CourseDetailsCard";
+import CourseAccordionBar from "../components/core/CourseDetailsPage/CourseAccordionBar";
 import NavBar from "../components/common/NavBar";
 
 const CourseDetails = () => {
