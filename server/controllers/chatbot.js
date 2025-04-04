@@ -2,9 +2,6 @@ const axios = require("axios");
 
 exports.chatbotPrompt = async (req, res) => {
   try {
-    // Log the incoming request for debugging
-    // console.log("Received chatbot request:", req.body);
-
     const { prompt, history } = req.body;
 
     if (!prompt) {
@@ -16,46 +13,45 @@ exports.chatbotPrompt = async (req, res) => {
 
     const API_KEY = process.env.GEMINI_API_KEY;
     if (!API_KEY) {
-      // console.error("GEMINI_API_KEY environment variable is not set!");
       return res.status(500).json({
         success: false,
         message: "API key configuration error",
       });
     }
 
-    // Use the correct API version and model name
     const API_URL =
       "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent";
 
-    // Remove this system instruction
-    // const systemInstruction = {
-    //   role: "system",
-    //   parts: [{
-    //     text: "Please provide helpful but concise responses, limited to around 50-100 words when possible. Focus on being direct and informative."
-    //   }]
-    // };
-
-    // Instead, make sure your request doesn't include any system role
     let requestData = {
       contents: [],
     };
 
     // Add chat history if provided
     if (history && history.length > 0) {
-      // Filter out any system messages
       requestData.contents = history.filter((msg) => msg.role !== "system");
     }
 
-    // Add the current prompt as the final user message
+    // Add system message at the beginning of conversation if history is empty
+    if (!history || history.length === 0) {
+      requestData.contents.push({
+        role: "model",
+        parts: [{ text: "I'm a helpful assistant providing clear, concise responses." }],
+      });
+    }
+
+    // Add the user's prompt without additional instructions
     requestData.contents.push({
       role: "user",
-      parts: [{ text: `${prompt} + Please provide helpful but concise responses, limited to around 40-50 words when possible. Focus on being direct and informative.` }],
+      parts: [{ text: prompt }],
     });
 
-    // Add request parameters for concise responses
+    // Configure for concise responses through API parameters instead of prompt instructions
     const generationConfig = {
-      maxOutputTokens: 100, // Limit output length
-      temperature: 0.7, // Slightly reduced creativity for more direct responses
+      maxOutputTokens: 70, // Reduced to enforce brevity
+      temperature: 0.5,    // Slightly lower for more focused responses
+      topP: 0.8,
+      topK: 40,
+      stopSequences: [],
     };
 
     console.log("Sending request to Gemini API:", {

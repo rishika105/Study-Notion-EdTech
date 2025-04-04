@@ -3,12 +3,11 @@ import { sidebarLinks } from "../../../data/dashboard-links"
 import { logout } from "../../../services/operations/authAPI"
 import { useDispatch, useSelector } from 'react-redux'
 import SidebarLink from "./SidebarLink"
-import { VscSettingsGear, VscSignOut } from 'react-icons/vsc'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import {VscSignOut } from 'react-icons/vsc'
+import { Link, useNavigate } from 'react-router-dom'
 import ConfirmationModal from '../../common/ConfirmationModal'
 import { useState } from 'react'
 import logo from "../../../assets/Logo/Logo-Full-Light.png"
-import {TbCategoryFilled} from 'react-icons'
 
 
 const Sidebar = ({ isOpen, onClose, isMobile }) => {
@@ -16,12 +15,8 @@ const Sidebar = ({ isOpen, onClose, isMobile }) => {
   const { loading: authLoading } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const location = useLocation();
   const [confirmationModal, setConfirmationModal] = useState(null);
 
-  const matchRoute = (route) => {
-    return location.pathname === route;
-  }
 
   if (profileLoading || authLoading) {
     return (

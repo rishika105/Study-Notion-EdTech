@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form"
 import { RxCross2 } from "react-icons/rx"
 import ReactStars from "react-rating-stars-component"
 import { useSelector } from "react-redux"
-
 import { createRating } from "../../../services/operations/courseDetailsAPI"
 import IconBtn from "../../common/IconBtn"
 
@@ -22,11 +21,9 @@ export default function CourseReviewModal({ setReviewModal }) {
   useEffect(() => {
     setValue("courseExperience", "")
     setValue("courseRating", 0)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [setValue])
 
   const ratingChanged = (newRating) => {
-    // console.log(newRating)
     setValue("courseRating", newRating)
   }
 
@@ -43,7 +40,7 @@ export default function CourseReviewModal({ setReviewModal }) {
   }
 
   return (
-    <div className="fixed inset-0 z-[1000] !mt-0 grid h-screen w-screen place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[1000] grid place-items-center overflow-y-auto bg-white bg-opacity-10 backdrop-blur-sm">
       <div className="my-10 w-11/12 max-w-[700px] rounded-lg border border-richblack-400 bg-richblack-800">
         {/* Modal Header */}
         <div className="flex items-center justify-between rounded-t-lg bg-richblack-700 p-5">
@@ -77,7 +74,7 @@ export default function CourseReviewModal({ setReviewModal }) {
               size={24}
               activeColor="#ffd700"
             />
-            <div className="flex w-11/12 flex-col space-y-2">
+            <div className="mt-4 w-full space-y-2">
               <label
                 className="text-sm text-richblack-5"
                 htmlFor="courseExperience"
@@ -88,7 +85,7 @@ export default function CourseReviewModal({ setReviewModal }) {
                 id="courseExperience"
                 placeholder="Add Your Experience"
                 {...register("courseExperience", { required: true })}
-                className="form-style resize-x-none min-h-[130px] w-full space-x-2"
+                className="form-style h-[130px] w-full rounded-md bg-richblack-700 p-3 text-richblack-5 focus:outline-none focus:ring-1 focus:ring-yellow-50"
               />
               {errors.courseExperience && (
                 <span className="ml-2 text-xs tracking-wide text-pink-200">
@@ -96,10 +93,10 @@ export default function CourseReviewModal({ setReviewModal }) {
                 </span>
               )}
             </div>
-            <div className="mt-6 flex w-11/12 justify-end gap-x-2">
+            <div className="mt-6 flex w-full justify-end gap-x-2">
               <button
                 onClick={() => setReviewModal(false)}
-                className={`flex cursor-pointer items-center gap-x-2 rounded-md bg-richblack-300 py-[8px] px-[20px] font-semibold text-richblack-900`}
+                className="rounded-md bg-richblack-300 px-4 py-2 font-medium text-richblack-900 hover:bg-richblack-200"
               >
                 Cancel
               </button>
