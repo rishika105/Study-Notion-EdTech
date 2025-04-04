@@ -27,7 +27,9 @@ import CourseDetails from "./pages/CourseDetails";
 import VideoDetails from "./components/core/ViewCourse/VideoDetails";
 import ViewCourse from "./pages/ViewCourse";
 import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
-import CategoryModal from "./components/core/AdminPanel/Category";
+import ManageCategories from "./components/core/AdminPanel/ManageCategories";
+import AddCategory from "./components/core/AdminPanel/AddCategory";
+import EditCategory from "./components/core/AdminPanel/EditCategory";
 
 function App() {
   const { user } = useSelector((state) => state.profile);
@@ -161,28 +163,35 @@ function App() {
             <>
               <Route
                 path="dashboard/manage-categories"
-                element={<CategoryModal />}
+                element={<ManageCategories />}
+              />
+              <Route path="dashboard/add-category" element={<AddCategory />} />
+              <Route
+                path="dashboard/edit-category/:categoryId"
+                element={<EditCategory />}
               />
             </>
           )}
-
-          <Route
-            element={
-              <PrivateRoute>
-                <ViewCourse />
-              </PrivateRoute>
-            }
-          >
-            {user?.accountType === ACCOUNT_TYPE.STUDENT && (
-              <>
-                <Route
-                  path="/view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
-                  element={<VideoDetails />}
-                />
-              </>
-            )}
-          </Route>
         </Route>
+
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="/view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
+              />
+            </>
+          )}
+        </Route>
+
+        <Route></Route>
 
         <Route element={<Error />} path="*"></Route>
       </Routes>

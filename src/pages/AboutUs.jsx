@@ -11,11 +11,13 @@ import ContactFormSection from '../components/core/AboutPage/ContactFormSection'
 import ReviewSlider from '../components/common/ReviewSlider'
 import Footer from '../components/common/Footer'
 import NavBar from '../components/common/NavBar'
+import Chatbot from '../components/common/Chatbot'
 
 const AboutUs = () => {
   return (
     <>
       <NavBar />
+      <Chatbot/>
       <div className="overflow-x-hidden">
         <div className="relative mx-auto flex flex-col items-center text-white w-11/12 max-w-maxContent">
           {/* first-section */}

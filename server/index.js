@@ -41,7 +41,7 @@ app.use("/api/v1/course", courseRoutes);
 app.use("/api/v1/payment", paymentRoutes);
 app.use("/api/v1/reach", contactUsRoute);
 app.use("/api/v1/chatbot", aiRoutes);
-app.use("/api/v1", categoryRoutes);
+app.use("/api/v1/category", categoryRoutes);
 
 //def route
 

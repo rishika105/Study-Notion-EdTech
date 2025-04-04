@@ -4,11 +4,13 @@ import ContactForm from '../components/core/ContactPage/ContactForm'
 import ReviewSlider from '../components/common/ReviewSlider'
 import Footer from '../components/common/Footer'
 import NavBar from '../components/common/NavBar'
+import Chatbot from '../components/common/Chatbot'
 
 const ContactUs = () => {
   return (
     <>
       <NavBar />
+        <Chatbot/>
       <div className='overflow-x-hidden'>
         <div className='w-11/12 max-w-maxContent mx-auto flex flex-col lg:flex-row gap-8 md:gap-10 justify-center mt-12 md:mt-16 lg:mt-[80px] px-4'>
           <ContactDetails />

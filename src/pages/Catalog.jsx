@@ -9,6 +9,7 @@ import CourseSlider from '../components/core/Catalog/CourseSlider';
 import { useSelector } from "react-redux"
 import Error from "./Error"
 import NavBar from '../components/common/NavBar';
+import Chatbot from '../components/common/Chatbot';
 
 const Catalog = () => {
 
@@ -61,6 +62,7 @@ const Catalog = () => {
   return (
     <>
       <NavBar />
+      <Chatbot/>
       {/* Hero Section */}
       <div className=" box-content bg-richblack-800 px-4">
         <div className="mx-auto flex min-h-[260px] max-w-maxContentTab flex-col justify-center gap-4 lg:max-w-maxContent ">

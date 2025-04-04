@@ -11,6 +11,7 @@ import {
   setEntireCourseData,
   setTotalNoOfLectures,
 } from "../slices/viewCourseSlice"
+import Chatbot from "../components/common/Chatbot"
 
 export default function ViewCourse() {
   const { courseId } = useParams()
@@ -36,9 +37,10 @@ export default function ViewCourse() {
 
   return (
     <>
-      <div className="relative flex min-h-[calc(100vh-3.5rem)]">
+      <Chatbot/>
+      <div className="relative flex min-h-screen mt-5">
         <VideoDetailsSidebar setReviewModal={setReviewModal} />
-        <div className="h-[calc(100vh-3.5rem)] flex-1 overflow-auto">
+        <div className="h-screen flex-1 overflow-auto">
           <div className="mx-6">
             <Outlet />
           </div>

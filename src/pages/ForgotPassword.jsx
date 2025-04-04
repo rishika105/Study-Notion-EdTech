@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 
 import { getPasswordResetToken } from "../services/operations/authAPI"
 import NavBar from "../components/common/NavBar"
+import Chatbot from "../components/common/Chatbot"
 
 function ForgotPassword() {
   const [email, setEmail] = useState("")
@@ -20,6 +21,7 @@ function ForgotPassword() {
   return (
     <>
       <NavBar />
+        <Chatbot/>
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         {loading ? (
           <div className="spinner"></div>

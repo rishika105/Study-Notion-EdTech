@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import { resetPassword } from "../services/operations/authAPI"
 import { toast } from "react-hot-toast"
 import NavBar from "../components/common/NavBar"
+import Chatbot from "../components/common/Chatbot"
 
 function UpdatePassword() {
   const navigate = useNavigate()

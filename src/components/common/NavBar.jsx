@@ -9,6 +9,7 @@ import { apiConnector } from "../../services/apiconnector"
 import { categories } from "../../services/api"
 import { ACCOUNT_TYPE } from "../../utils/constants"
 import ProfileDropdown from "../core/Auth/ProfileDropDown.jsx"
+import { fetchAllCategories } from "../../services/operations/categoryAPI.js"
 
 function NavBar() {
   const { token } = useSelector((state) => state.auth)
@@ -20,18 +21,20 @@ function NavBar() {
   const [loading, setLoading] = useState(false)
   const [catalogDropdownOpen, setCatalogDropdownOpen] = useState(false)
 
+
   useEffect(() => {
-    ; (async () => {
-      setLoading(true)
+    const getCategories = async () => {
+      setLoading(true);
       try {
-        const res = await apiConnector("GET", categories.CATEGORIES_API)
-        setSubLinks(res.data.data)
+        const result = await fetchAllCategories();
+        setSubLinks(result.data || []);
       } catch (error) {
-        console.log("Could not fetch Categories.", error)
+        console.error("Error fetching categories:", error);
       }
-      setLoading(false)
-    })()
-  }, [])
+      setLoading(false);
+    };
+    getCategories();
+  }, []);
 
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname)
@@ -77,6 +80,7 @@ function NavBar() {
                       ) : (subLinks && subLinks.length) ? (
                         <>
                           {subLinks
+                          // shows only catalog that have course
                             ?.filter(
                               (subLink) => subLink?.courses?.length > 0
                             )
