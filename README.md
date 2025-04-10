@@ -40,6 +40,7 @@ The front end of the platform is built using ReactJS, which allows for the creat
 - **Course Content:** Displays course content, including videos and other materials.
 - **User Details:** Account details including name, email, etc.
 - **User Edit Details:** Allows students to edit account details.
+- **AI ChatBot:** Chat with AI for doubts and gain knowledge.
 
 #### For Instructors:
 - **Dashboard:** Overview of instructor's courses, ratings, and feedback.
