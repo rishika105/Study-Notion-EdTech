@@ -51,7 +51,7 @@ The front end of the platform is built using ReactJS, which allows for the creat
 #### For Admin:
 - **Category Management Pages:** Create, update, delete categories.
 - **View and Edit Category Details:** View and edit category details.
-- 
+  
 ### Tools and Libraries
 - **Frameworks/Libraries:** ReactJS, CSS, Tailwind, Redux
 - **Development Environment:** VSCode
