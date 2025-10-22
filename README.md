@@ -48,6 +48,10 @@ The front end of the platform is built using ReactJS, which allows for the creat
 - **Course Management Pages:** Create, update, delete courses, manage content and pricing.
 - **View and Edit Profile Details:** View and edit account details.
 
+#### For Admin:
+- **Category Management Pages:** Create, update, delete categories.
+- **View and Edit Category Details:** View and edit category details.
+- 
 ### Tools and Libraries
 - **Frameworks/Libraries:** ReactJS, CSS, Tailwind, Redux
 - **Development Environment:** VSCode
